@@ -1,6 +1,6 @@
 backend:
   # Netlify 사용 시
-  name: git-gateway
+  name: github
   branch: main
 
 media_folder: "public/images/uploads"   # 리포지토리 내부 저장 경로

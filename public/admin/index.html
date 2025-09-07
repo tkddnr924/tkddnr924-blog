@@ -6,7 +6,23 @@
   <title>Admin</title>
 </head>
 <body>
-<!-- 관리자 UI 스크립트 -->
+<!-- ★ 초대 토큰(#invite_token) 처리용 위젯 -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<!-- Decap CMS 본체 -->
 <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+<!-- 로그인 후 /admin 재로딩(선택) -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
